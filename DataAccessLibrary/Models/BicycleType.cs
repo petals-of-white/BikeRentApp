@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace test.Models
+
+namespace DataAccessLibrary.Models
 {
     public class BicycleType
     {
@@ -7,6 +8,7 @@ namespace test.Models
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(100)]
         public string Name { get; set; }
     }
 }

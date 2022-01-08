@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace test.Models
+namespace DataAccessLibrary.Models
 {
     public class Bicycle
     {
@@ -20,7 +20,6 @@ namespace test.Models
         public decimal RentPrice { get; set; }
 
         [Required]
-
         public bool IsRented { get; set; }
 
 
