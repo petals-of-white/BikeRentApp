@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLibrary
 {
-    public class EFCrud
+    public class EFCrud : IBicycleCrud
     {
         public static void CreateSampleData()
         {
@@ -31,15 +31,17 @@ namespace DataAccessLibrary
             }
         }
 
-        public static List<Bicycle> GetAllBicycles()
+        public List<Bicycle> GetAllBicycles()
         {
             using (var db = new BicycleContext())
             {
-                return db.Bicycles.ToList();
+                List<Bicycle> output = (db.Bicycles
+                    .Include(b => b.BicycleType)).ToList();
+                return output;
             }
         }
 
-        public static Bicycle GetBycicle(int id)
+        public Bicycle GetBicycle(int id)
         {
             using (var db = new BicycleContext())
             {
@@ -47,16 +49,17 @@ namespace DataAccessLibrary
             }
         }
 
-        public static void AddBicycle(Bicycle bicycle)
+        public void AddBicycle(Bicycle bicycle)
         {
             using (var db = new BicycleContext())
             {
+                bicycle.BicycleType = db.BicycleTypes.Where(b => b.Id == bicycle.BicycleType.Id).FirstOrDefault();
                 db.Bicycles.Add(bicycle);
                 db.SaveChanges();
             }
         }
 
-        public static void RemoveBicycle(int id)
+        public void RemoveBicycle(int id)
         {
             using (var db = new BicycleContext())
             {
@@ -68,7 +71,7 @@ namespace DataAccessLibrary
             }
         }
 
-        public static void Rent(int id)
+        public void Rent(int id)
         {
             using (var db = new BicycleContext())
             {
@@ -79,7 +82,17 @@ namespace DataAccessLibrary
             }
         }
 
-        public static void CancelRent(int id)
+        public void Rent(Bicycle bicycle)
+        {
+            using (var db = new BicycleContext())
+            {
+                //how does this work???
+                db.Bicycles.Where(b => b.Id == bicycle.Id).FirstOrDefault().IsRented = true;
+                db.SaveChanges();
+            }
+        }
+
+        public void CancelRent(int id)
         {
             using (var db = new BicycleContext())
             {
@@ -90,7 +103,7 @@ namespace DataAccessLibrary
             }
         }
 
-        public static List<BicycleType> GetAllBicycleTypes()
+        public List<BicycleType> GetAllBicycleTypes()
         {
             using (var db = new BicycleContext())
             {

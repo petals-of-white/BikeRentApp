@@ -13,9 +13,11 @@ namespace DataAccessLibrary
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
+            string pathToJson = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\..", "DataAccessLibrary"));
+
             IConfigurationBuilder builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json");
+                .SetBasePath(pathToJson)
+                .AddJsonFile("dbsettings.json");
             
             IConfigurationRoot config = builder.Build();
 

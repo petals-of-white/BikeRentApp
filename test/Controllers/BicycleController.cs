@@ -1,32 +1,42 @@
 ﻿using System.Collections.Generic;
+using DataAccessLibrary;
+using DataAccessLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace test.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class BicycleController : ControllerBase
     {
+
+        private IBicycleCrud _EFCrud = new EFCrud();
+
         // GET: api/<BicycleController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Bicycle> Get()
         {
-            return new string [] { "value1", "value2" };
+
+            return _EFCrud.GetAllBicycles();
+
         }
 
         // GET api/<BicycleController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Bicycle Get(int id)
         {
-            return "value";
+            return _EFCrud.GetBicycle(id);
         }
+
 
         // POST api/<BicycleController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
+
         }
 
         [HttpPost]
@@ -46,7 +56,7 @@ namespace test.Controllers
         public void Delete(int id)
         {
         }
-        
-        
+
+
     }
 }
