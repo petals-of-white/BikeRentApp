@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Bicycle } from 'src/app/models/Bicycle';
 
 @Component({
   selector: 'app-rented-bikes',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RentedBikesComponent implements OnInit {
 
+
+  @Input() rentedBicycles: Bicycle[] = [];
+
+  @Output() onCancelRent: EventEmitter<Bicycle> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onCancel(bicycle: Bicycle) {
+    this.onCancelRent.emit(bicycle);
   }
 
 }

@@ -28,6 +28,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\Bicycle.ts" />
+    <None Remove="ClientApp\src\app\models\BicycleType.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="ClientApp\node_modules\bootstrap\dist\css\bootstrap-grid.css" />
     <Content Include="ClientApp\node_modules\bootstrap\dist\css\bootstrap-grid.min.css" />
     <Content Include="ClientApp\node_modules\bootstrap\dist\css\bootstrap-grid.rtl.css" />

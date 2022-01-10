@@ -13,48 +13,62 @@ namespace test.Controllers
     public class BicycleController : ControllerBase
     {
 
-        private IBicycleCrud _EFCrud = new EFCrud();
+        private IBicycleCrud _dbCrud = new EFCrud();
 
         // GET: api/<BicycleController>
         [HttpGet]
-        public List<Bicycle> Get()
+        public List<Bicycle> GetAllBicycles()
         {
 
-            return _EFCrud.GetAllBicycles();
+            return _dbCrud.GetAllBicycles();
 
         }
 
         // GET api/<BicycleController>/5
         [HttpGet("{id}")]
-        public Bicycle Get(int id)
+        public Bicycle GetBycicleById(int id)
         {
-            return _EFCrud.GetBicycle(id);
+            return _dbCrud.GetBicycle(id);
         }
-
 
         // POST api/<BicycleController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void AddBicycle([FromBody] Bicycle bicycle)
         {
-
+            _dbCrud.AddBicycle(bicycle);
         }
 
-        [HttpPost]
-        public void Rent([FromForm] string value)
-        {
-
-        }
 
         // PUT api/<BicycleController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void RentBicycle(int id, [FromBody] int rentAction)
         {
+            switch (rentAction)
+            {
+                case 0:
+                    _dbCrud.Rent(id);
+                    break;
+                case 1:
+                    _dbCrud.CancelRent(id);
+                    break;
+                default:
+                    break;
+            }
+
         }
+        [HttpGet]
+        [Route("types")]
+        public List<BicycleType> GetAllBicycleTypes()
+        {
+            return _dbCrud.GetAllBicycleTypes();
+        }
+
 
         // DELETE api/<BicycleController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void DeleteBicycle(int id)
         {
+            _dbCrud.RemoveBicycle(id);
         }
 
 

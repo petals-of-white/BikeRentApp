@@ -1,7 +1,7 @@
 <h2>Your rent: $12.99</h2>
 <div>
-  <div>
-    <span>Superfast bicycle / Custom / $12.99</span>
-    <button class="btn btn-danger">Cancel Rent</button>
+  <div *ngFor="let rentedBicycle of rentedBicycles">
+    <span>{{rentedBicycle.name}} / {{rentedBicycle.bicycleType.name}} / ${{rentedBicycle.rentPrice}}</span>
+    <button class="btn btn-danger" (click)="onCancel(rentedBicycle)">Cancel Rent</button>
   </div>
 </div>

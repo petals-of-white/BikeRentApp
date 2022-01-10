@@ -1,9 +1,10 @@
 <h2>Available bicycles</h2>
 
 <div>
-	<form>
-		<span class="">Superfast bicycle / Custom / $12.99</span>
-		<button class="btn btn-primary">Rent</button>
-		<button class="btn btn-danger">Delete</button>
+	<form *ngFor="let availableBicycle of availableBicycles">
+		<span class="">{{availableBicycle.name}} / {{availableBicycle.bicycleType.name}} /
+			${{availableBicycle.rentPrice}}</span>
+		<button class="btn btn-primary" (click)="onRent(availableBicycle)">Rent</button>
+		<button class="btn btn-danger" (click)="onDelete(availableBicycle)">Delete</button>
 	</form>
 </div>
