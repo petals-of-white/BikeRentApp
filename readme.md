@@ -10,7 +10,7 @@ The technologies used:
   
 - Backend:
   - ASP.NET API
-  -Entity Framework Core
+  - Entity Framework Core
   
 - Database:
   - MS SQL Server
