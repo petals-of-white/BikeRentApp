@@ -8,25 +8,68 @@ namespace DataAccessLibrary
 {
     public class EFCrud : IBicycleCrud
     {
+
         public static void CreateSampleData()
         {
             Console.WriteLine("Creating sample bikes...");
             using (var db = new BicycleContext())
             {
-                db.Bicycles.Add(new Bicycle
+                BicycleType [] bikeTypes =
                 {
-                    Name = "SuperBike",
-                    IsRented = false,
-                    BicycleType = new BicycleType { Name = "Mountain" },
-                    RentPrice = 12.99m
-                });
-                db.Bicycles.Add(new Bicycle
+                    new BicycleType {Name = "Road"},
+                    new BicycleType {Name = "Touring"},
+                    new BicycleType {Name = "City"},
+                    new BicycleType {Name = "Shopping"},
+                    new BicycleType {Name = "Mountain"},
+                };
+
+                db.BicycleTypes.AddRange(bikeTypes);
+
+                db.SaveChanges();
+
+
+                bikeTypes = db.BicycleTypes.ToArray();
+
+                Bicycle [] bikes =
                 {
-                    Name = "SuperBike",
-                    IsRented = false,
-                    BicycleType = new BicycleType { Name = "Racing" },
-                    RentPrice = 12.99m
-                });
+                    new Bicycle
+                    {
+                        Name = "Road Fury",
+                        RentPrice = 25m,
+                        BicycleType = bikeTypes.Where(bt=>bt.Name == "Road").FirstOrDefault()
+                    },
+
+                    new Bicycle
+                    {
+                        Name = "Traveller 3000",
+                        RentPrice = 24m,
+                        BicycleType = bikeTypes.Where(bt=>bt.Name == "Touring").FirstOrDefault()
+                    },
+
+                    new Bicycle
+                    {
+                        Name = "The Urban Legend",
+                        RentPrice = 35.22m,
+                        BicycleType = bikeTypes.Where(bt=>bt.Name == "City").FirstOrDefault()
+                    },
+
+                    new Bicycle
+                    {
+                        Name = "Lovely Shop-Bike",
+                        RentPrice = 18.88m,
+                        BicycleType = bikeTypes.Where(bt=>bt.Name == "Shopping").FirstOrDefault()
+                    },
+
+                    new Bicycle
+                    {
+                        Name = "Mountain Ghost #1",
+                        RentPrice = 12m,
+                        BicycleType = bikeTypes.Where(bt=>bt.Name == "Mountain").FirstOrDefault()
+                    }
+                };
+
+                db.Bicycles.AddRange(bikes);
+
                 db.SaveChanges();
             }
         }
@@ -78,16 +121,6 @@ namespace DataAccessLibrary
                 //how does this work???
                 var bicycle = db.Bicycles.Find(id);
                 bicycle.IsRented = true;
-                db.SaveChanges();
-            }
-        }
-
-        public void Rent(Bicycle bicycle)
-        {
-            using (var db = new BicycleContext())
-            {
-                //how does this work???
-                db.Bicycles.Where(b => b.Id == bicycle.Id).FirstOrDefault().IsRented = true;
                 db.SaveChanges();
             }
         }

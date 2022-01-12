@@ -1,5 +1,3 @@
 ﻿{
-  "ConnectionStrings": {
-    "Default": "Server=(localdb)\\MSSQLLocalDB;Database=EFBicycleRentDB;Trusted_Connection=True;"
-  }
+  
 }

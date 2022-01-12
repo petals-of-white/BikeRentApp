@@ -11,7 +11,6 @@ namespace DataAccessLibrary
         List<BicycleType> GetAllBicycleTypes();
         Bicycle GetBicycle(int id);
         void RemoveBicycle(int id);
-        void Rent(Bicycle bicycle);
         void Rent(int id);
     }
 }

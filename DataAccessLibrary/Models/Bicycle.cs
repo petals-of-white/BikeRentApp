@@ -20,7 +20,7 @@ namespace DataAccessLibrary.Models
         public decimal RentPrice { get; set; }
 
         [Required]
-        public bool IsRented { get; set; }
+        public bool IsRented { get; set; } = false;
 
 
     }
