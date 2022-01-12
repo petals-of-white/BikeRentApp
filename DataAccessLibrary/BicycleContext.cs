@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Diagnostics;
 
 namespace DataAccessLibrary
 {
@@ -16,11 +17,28 @@ namespace DataAccessLibrary
      
         public BicycleContext(): base()
         {
-            bool newDbCreated = this.Database.EnsureCreated();
-            if (newDbCreated == true)
-            {
-                EFCrud.CreateSampleData();
-            }
+            //bool dbExists = this.Database.GetService<IRelationalDatabaseCreator>().Exists();
+            //if(dbExists)
+            //{
+            //try
+            //{
+            //    bool dbExists = this.Database.GetService<IRelationalDatabaseCreator>();
+
+            //    this.Database.EnsureCreated();
+            //    this.Database.Migrate();
+            //    EFCrud.CreateSampleData();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine(ex.Message);
+            //}
+                
+            //}
+            //bool newDbCreated = this.Database.EnsureCreated();
+            //if (newDbCreated == true)
+            //{
+            //    EFCrud.CreateSampleData();
+            //}
             
         }
         protected override void OnConfiguring(DbContextOptionsBuilder options)

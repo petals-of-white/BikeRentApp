@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataAccessLibrary;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -11,8 +12,12 @@ namespace test
 {
     public class Program
     {
+
         public static void Main(string [] args)
         {
+            EFCrud dbAccess = new EFCrud();
+            dbAccess.CheckDbExists();
+
             CreateHostBuilder(args).Build().Run();
         }
 

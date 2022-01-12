@@ -2,12 +2,11 @@
   <h2>Create new rent</h2>
   <form style="background-color: #e9eaee" class="rounded rounded-2 shadow pb-4 pt-3 px-4 mt-4" (ngSubmit)="onSubmit()">
     <div class="row align-items-center ">
-      <div class="col">
+      <div class="col-4">
         <label class="form-label" for="bikeName">Bike name</label>
       </div>
-      <div class="col">
+      <div class="col-4">
         <label class="form-label" for="bikeType">Bike type</label>
-
       </div>
       <div class="col-4">
         <label class="form-label" for="rentPrice">Rent price</label>
@@ -15,10 +14,10 @@
     </div>
 
     <div class="row align-items-center">
-      <div class="col">
+      <div class="col-4">
         <input class="form-control" [(ngModel)]="bikeName" id="bikeName" type="text" name="bikeName" placeholder="Enter bike name" />
       </div>
-      <div class="col">
+      <div class="col-4">
         <select [selectedIndex]="bikeTypeIndex" class="form-select" name="bikeType" id="bikeType">
           <option *ngFor="let bicycleType of bicycleTypes">{{bicycleType.name}}</option>
         </select>

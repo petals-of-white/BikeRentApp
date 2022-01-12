@@ -19,7 +19,6 @@ namespace test.Controllers
         [HttpGet]
         public List<Bicycle> GetAllBicycles()
         {
-
             return _dbCrud.GetAllBicycles();
 
         }

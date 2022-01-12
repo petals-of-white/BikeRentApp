@@ -8,7 +8,16 @@ namespace DataAccessLibrary
 {
     public class EFCrud : IBicycleCrud
     {
-
+        public void CheckDbExists()
+        {
+            using(var db = new BicycleContext())
+            {
+                if (db.Database.EnsureCreated())
+                {
+                    CreateSampleData();
+                }
+            }
+        }
         public static void CreateSampleData()
         {
             Console.WriteLine("Creating sample bikes...");
