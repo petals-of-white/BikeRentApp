@@ -1,7 +1,15 @@
-<h2>Your rent: $12.99</h2>
-<div>
-  <div *ngFor="let rentedBicycle of rentedBicycles">
-    <span>{{rentedBicycle.name}} / {{rentedBicycle.bicycleType.name}} / ${{rentedBicycle.rentPrice}}</span>
-    <button class="btn btn-danger" (click)="onCancel(rentedBicycle)">Cancel Rent</button>
+<div class="my-5" id="rentedBicycles">
+  <h2>Your rent (Total: ${{getFullRentPrice().toFixed(2)}})</h2>
+  <!--<div>-->
+  <div class="row rounded rounded-2 shadow-sm bg-white align-items-center py-3 px-4 mt-4"  *ngFor="let rentedBicycle of rentedBicycles">
+
+    <div class="col-10">
+      <span>{{rentedBicycle.name}} / {{rentedBicycle.bicycleType.name}} / ${{rentedBicycle.rentPrice.toFixed(2)}}</span>
+    </div>
+
+    <div class="col-2 d-grid">
+      <button type="button" class="btn btn-block btn-danger" (click)="onCancel(rentedBicycle)">Cancel Rent</button>
+    </div>
+    <!--</div>-->
   </div>
 </div>

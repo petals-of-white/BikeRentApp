@@ -1,10 +1,26 @@
-<h2>Available bicycles</h2>
+<div class="my-5" id="availableBicycles">
+  <h2>Available bicycles: ({{availableBicycles.length}})</h2>
+  <div *ngFor="let availableBicycle of availableBicycles"
+       class="row rounded rounded-2 shadow-sm bg-white align-items-center py-3 px-4 mt-4">
+       <!--class="rounded rounded-2 shadow-sm bg-white d-flex justify-content-between align-items-center py-3 px-4 mt-4">-->
 
-<div>
-	<form *ngFor="let availableBicycle of availableBicycles">
-		<span class="">{{availableBicycle.name}} / {{availableBicycle.bicycleType.name}} /
-			${{availableBicycle.rentPrice}}</span>
-		<button class="btn btn-primary" (click)="onRent(availableBicycle)">Rent</button>
-		<button class="btn btn-danger" (click)="onDelete(availableBicycle)">Delete</button>
-	</form>
-</div>
+    <div class="col-8">
+      <span>
+        {{availableBicycle.name}} / {{availableBicycle.bicycleType.name}} /
+        ${{availableBicycle.rentPrice.toFixed(2)}}
+      </span>
+    </div>
+  
+    <div class="col-2 d-grid">
+      <button type="button" class="btn btn-block btn-primary"  (click)="onRent(availableBicycle)">Rent</button>
+
+    </div>
+
+    <div class="col-2 d-grid">
+      <button type="button" class="btn btn-block btn-danger" (click)="onDelete(availableBicycle)">Delete</button>
+
+    </div>
+
+  </div>
+  </div>
+

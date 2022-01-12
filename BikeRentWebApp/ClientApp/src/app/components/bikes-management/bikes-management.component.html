@@ -1,6 +1,6 @@
-<div (dblclick)="test()">
-	<app-add-rent [bicycleTypes]="allBicycleTypes" (onSubmitRent)="addBicycle($event)"></app-add-rent>
-	<app-rented-bikes [rentedBicycles]="rentedBicycles" (onCancelRent)="cancelRent($event)"></app-rented-bikes>
-	<app-available-bikes [availableBicycles]="availableBicycles" (onDeleteBicycle)="deleteBicycle($event)"
-		(onRentBicycle)="rentBicycle($event)"></app-available-bikes>
-</div>
+<!-- <div> -->
+<app-add-rent [bicycleTypes]="allBicycleTypes" (onSubmitRent)="addBicycle($event)"></app-add-rent>
+<app-rented-bikes [rentedBicycles]="rentedBicycles" (onCancelRent)="cancelRent($event)"></app-rented-bikes>
+<app-available-bikes [availableBicycles]="availableBicycles" (onDeleteBicycle)="deleteBicycle($event)"
+	(onRentBicycle)="rentBicycle($event)"></app-available-bikes>
+<!-- </div> -->
