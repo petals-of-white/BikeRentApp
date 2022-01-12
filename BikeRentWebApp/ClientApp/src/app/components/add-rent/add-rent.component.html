@@ -15,18 +15,22 @@
 
     <div class="row align-items-center">
       <div class="col-4">
-        <input class="form-control" [(ngModel)]="bikeName" id="bikeName" type="text" name="bikeName" placeholder="Enter bike name" />
+        <input class="form-control" [(ngModel)]="bikeName" id="bikeName" type="text" name="bikeName"
+          placeholder="Enter bike name" />
       </div>
       <div class="col-4">
-        <select [selectedIndex]="bikeTypeIndex" class="form-select" name="bikeType" id="bikeType">
-          <option *ngFor="let bicycleType of bicycleTypes">{{bicycleType.name}}</option>
+        <select selectedIndex="0" (change)="onChange()" [(ngModel)]="selectedType" class="form-select" name="bikeType"
+          id="bikeType">
+          <option [ngValue]="bicycleType" *ngFor="let bicycleType of bicycleTypes">{{bicycleType.name}}</option>
         </select>
       </div>
       <div class="col-2">
-        <input class="form-control" step="any" [(ngModel)]="rentPrice" id="rentPrice" type="number" name="rentPrice" value="" />
+        <input class="form-control" step="any" [(ngModel)]="rentPrice" id="rentPrice" type="number" name="rentPrice"
+          value="" />
       </div>
       <div class="col-2 d-grid">
-        <input class="btn btn-block btn-success form-control" type="submit" name="submitRent" id="submitRent" value="Submit rent" />
+        <input class="btn btn-block btn-success form-control" type="submit" name="submitRent" id="submitRent"
+          value="Submit rent" />
       </div>
     </div>
 
@@ -39,7 +43,7 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Успіх</h4>
+        <h4 class="modal-title">Success</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -56,4 +60,3 @@
     </div>
   </div>
 </div>
-
