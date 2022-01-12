@@ -22,4 +22,9 @@ export class RentedBikesComponent implements OnInit {
     this.onCancelRent.emit(bicycle);
   }
 
+  getFullRentPrice(): number {
+    return this.rentedBicycles.map(b => b.rentPrice) //every price
+      .reduce((accumVariable, curVariable) => accumVariable + curVariable, 0); //sum
+  }
+
 }

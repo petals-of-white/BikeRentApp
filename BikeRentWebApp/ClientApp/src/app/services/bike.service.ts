@@ -1,8 +1,10 @@
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Bicycle } from "../models/Bicycle"
 import {BicycleType} from "../models/BicycleType"
+import { Location } from "@angular/common";
 
 const httpOptions =
 {
@@ -25,9 +27,9 @@ export enum RentAction {
 export class BikeService {
 
   
-  private apiURL = "https://localhost:44300/api/bicycle/"
-  constructor(private http: HttpClient) {
-
+  private apiURL!: string;
+  constructor(private http: HttpClient, private location: Location) {
+    this.apiURL = this.location.path() + "/api/bicycle/";
   }
 
 

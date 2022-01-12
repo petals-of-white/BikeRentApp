@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoBootstrap, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Bicycle } from 'src/app/models/Bicycle';
 import { BikeService } from 'src/app/services/bike.service';
 import { BicycleType } from '../../models/BicycleType';
+
+declare var $: any;
 
 @Component({
   selector: 'app-bikes-management',
@@ -18,6 +21,9 @@ export class BikesManagementComponent implements OnInit {
   allBicycleTypes: BicycleType[] = [];
 
 
+
+  @ViewChild('bikeAdded')
+    bikeAddedModal!: ElementRef;
   constructor(private bikeService: BikeService) {
   }
 
@@ -34,40 +40,21 @@ export class BikesManagementComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+    this.updateAllBicycleTypes();
     this.updateAllBicycles();
+  }
 
+  updateAllBicycleTypes() {
     this.bikeService.getAllBicycleTypes().subscribe(
       bt => {
         console.log(bt);
         this.allBicycleTypes = bt;
       }
-    )
-
+    );
   }
 
   test() {
-    console.log("Усі велосипеди:")
-    console.log(this.bicycles);
 
-    console.log("вільні: не в змінній");
-    console.log(this.bicycles.filter(b => b.isRented === false))
-
-    console.log("до");
-    console.log(this.availableBicycles);
-
-    this.updateAvailableBicycles();
-
-    console.log("після");
-    console.log(this.availableBicycles);
-
-
-    console.log(this.bicycles.filter(b => b.isRented === true))
-    //console.log(this.bicycles);
-    //console.log(this.availableBicycles);
-    //console.log(this.rentedBicycles);
-
-    //this.availableBicycles.push(new Bicycle());
   }
 
   updateAvailableBicycles() {
@@ -98,6 +85,23 @@ export class BikesManagementComponent implements OnInit {
   addBicycle(bicycle: Bicycle) {
     this.bikeService.addBicycle(bicycle).subscribe(
       () => {
+        var bikeModal = $("#bikeAdded");
+        try {
+          bikeModal.modal('show');
+        }
+        catch (e) {
+          
+          alert((e as Error).message);
+        }
+        
+        //let bikeAddedModal = <any>document.getElementById("bikeAdded");
+        //if (bikeAddedModal === null) {
+        //  alert("Modal not found!");
+        //}
+        //else {
+        //  bikeAddedModal.modal("toggle");
+        //}
+        
         this.updateAllBicycles();
       }
     );

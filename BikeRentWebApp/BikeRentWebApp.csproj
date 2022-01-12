@@ -50,6 +50,9 @@
     <Content Include="ClientApp\node_modules\bootstrap\dist\css\bootstrap.rtl.css" />
     <Content Include="ClientApp\node_modules\bootstrap\dist\css\bootstrap.rtl.min.css" />
     <Content Include="ClientApp\node_modules\bootstrap\package.json" />
+    <Content Include="ClientApp\node_modules\jquery\bower.json" />
+    <Content Include="ClientApp\node_modules\jquery\external\sizzle\LICENSE.txt" />
+    <Content Include="ClientApp\node_modules\jquery\package.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -225,6 +228,49 @@
     <None Include="ClientApp\node_modules\bootstrap\scss\_type.scss" />
     <None Include="ClientApp\node_modules\bootstrap\scss\_utilities.scss" />
     <None Include="ClientApp\node_modules\bootstrap\scss\_variables.scss" />
+    <None Include="ClientApp\node_modules\jquery\dist\jquery.js" />
+    <None Include="ClientApp\node_modules\jquery\dist\jquery.min.js" />
+    <None Include="ClientApp\node_modules\jquery\dist\jquery.min.map" />
+    <None Include="ClientApp\node_modules\jquery\dist\jquery.slim.js" />
+    <None Include="ClientApp\node_modules\jquery\dist\jquery.slim.min.js" />
+    <None Include="ClientApp\node_modules\jquery\dist\jquery.slim.min.map" />
+    <None Include="ClientApp\node_modules\jquery\external\sizzle\dist\sizzle.js" />
+    <None Include="ClientApp\node_modules\jquery\external\sizzle\dist\sizzle.min.js" />
+    <None Include="ClientApp\node_modules\jquery\external\sizzle\dist\sizzle.min.map" />
+    <None Include="ClientApp\node_modules\jquery\README.md" />
+    <None Include="ClientApp\node_modules\jquery\src\ajax.js" />
+    <None Include="ClientApp\node_modules\jquery\src\core\access.js" />
+    <None Include="ClientApp\node_modules\jquery\src\core\camelCase.js" />
+    <None Include="ClientApp\node_modules\jquery\src\core\DOMEval.js" />
+    <None Include="ClientApp\node_modules\jquery\src\core\init.js" />
+    <None Include="ClientApp\node_modules\jquery\src\core\isAttached.js" />
+    <None Include="ClientApp\node_modules\jquery\src\core\nodeName.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\addGetHookIf.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\adjustCSS.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\curCSS.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\finalPropName.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\hiddenVisibleSelectors.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\var\cssExpand.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\var\getStyles.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\var\isHiddenWithinTree.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\var\rboxStyle.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\var\rnumnonpx.js" />
+    <None Include="ClientApp\node_modules\jquery\src\css\var\swap.js" />
+    <None Include="ClientApp\node_modules\jquery\src\data\Data.js" />
+    <None Include="ClientApp\node_modules\jquery\src\data\var\acceptData.js" />
+    <None Include="ClientApp\node_modules\jquery\src\data\var\dataPriv.js" />
+    <None Include="ClientApp\node_modules\jquery\src\data\var\dataUser.js" />
+    <None Include="ClientApp\node_modules\jquery\src\deprecated\ajax-event-alias.js" />
+    <None Include="ClientApp\node_modules\jquery\src\deprecated\event.js" />
+    <None Include="ClientApp\node_modules\jquery\src\exports\amd.js" />
+    <None Include="ClientApp\node_modules\jquery\src\exports\global.js" />
+    <None Include="ClientApp\node_modules\jquery\src\manipulation\buildFragment.js" />
+    <None Include="ClientApp\node_modules\jquery\src\manipulation\getAll.js" />
+    <None Include="ClientApp\node_modules\jquery\src\manipulation\setGlobalEval.js" />
+    <None Include="ClientApp\node_modules\jquery\src\manipulation\support.js" />
+    <None Include="ClientApp\node_modules\jquery\src\manipulation\var\rscriptType.js" />
+    <None Include="ClientApp\node_modules\jquery\src\manipulation\var\rtagName.js" />
+    <None Include="ClientApp\node_modules\jquery\src\manipulation\_evalUrl.js" />
   </ItemGroup>
 
   <ItemGroup>

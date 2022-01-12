@@ -15,7 +15,6 @@ export class AddRentComponent implements OnInit {
 
   @Input()
   bicycleTypes: BicycleType[] = [];
-
   bikeName: string = "";
 
   rentPrice: number = 0;
